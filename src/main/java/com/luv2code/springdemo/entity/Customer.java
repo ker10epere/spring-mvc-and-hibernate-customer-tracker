@@ -24,6 +24,11 @@ public class Customer {
 	@Column(name = "email")
 	private String email;
 
+	public Customer(Integer id) {
+		super();
+		this.id = id;
+	}
+
 	public Customer() {
 		super();
 	}

@@ -37,11 +37,17 @@
 						<!-- query string parameter to be injected above -->
 						<c:param name="customerId" value="${ item.id }"></c:param>
 					</c:url>
+
+					<c:url var="deleteLink" value="/customer/delete">
+						<c:param name="customerId" value="${ item.id }"></c:param>
+					</c:url>
+
 					<tr>
 						<td>${ item.firstName }</td>
 						<td>${ item.lastName }</td>
 						<td>${ item.email }</td>
-						<td><a href="${ updateLink }">Update</a></td>
+						<td><a href="${ updateLink }">Update</a> | <a
+							href="${ deleteLink }" onclick="return window.confirm('Are you sure you want to delete this customer?');">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</table>
