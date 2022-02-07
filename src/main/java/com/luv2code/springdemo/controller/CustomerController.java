@@ -24,7 +24,6 @@ public class CustomerController {
 	@GetMapping("/list")
 	public String getCustomerList(Model model) {
 		List<Customer> customers = customerService.getCustomers();
-		System.out.println("luv2code: " + customers);
 		model.addAttribute("customers", customers);
 		return "list-customers";
 	}
@@ -47,6 +46,7 @@ public class CustomerController {
 	@PostMapping("/saveCustomer")
 	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
 		System.out.println("Code2Luv: " + customer);
+		customerService.saveCustomer(customer);
 		return "redirect:/customer/list";
 	}
 
