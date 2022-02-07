@@ -15,10 +15,10 @@ import com.luv2code.springdemo.service.CustomerService;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
-	
+
 	@Autowired
 	CustomerService customerService;
-	
+
 	@GetMapping("/list")
 	public String getCustomerList(Model model) {
 		List<Customer> customers = customerService.getCustomers();
@@ -26,7 +26,7 @@ public class CustomerController {
 		model.addAttribute("customers", customers);
 		return "list-customers";
 	}
-	
+
 	@ResponseBody
 	@GetMapping("/listjson")
 	public List<Customer> getCustomerListJson() {
@@ -37,7 +37,8 @@ public class CustomerController {
 
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model model) {
-		
+		Customer customer = new Customer();
+		model.addAttribute("customer", customer);
 		return "customer-form";
 	}
 
