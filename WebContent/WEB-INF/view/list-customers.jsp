@@ -24,17 +24,24 @@
 				onclick="window.location.href='showFormForAdd'; return false;">
 			<table>
 				<tr>
-					<th>ID</th>
+					<!-- <th>ID</th>  -->
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
+					<th>Action</th>
 				</tr>
-				<c:forEach items="${customers}" var="item">
+				<c:forEach items="${ customers }" var="item">
+
+					<!-- template string-->
+					<c:url var="updateLink" value="/customer/showFormForUpdate">
+						<!-- query string parameter to be injected above -->
+						<c:param name="customerId" value="${ item.id }"></c:param>
+					</c:url>
 					<tr>
-						<td>${item.getId()}</td>
-						<td>${item.getFirstName()}</td>
-						<td>${item.getLastName()}</td>
-						<td>${item.getEmail()}</td>
+						<td>${ item.firstName }</td>
+						<td>${ item.lastName }</td>
+						<td>${ item.email }</td>
+						<td><a href="${ updateLink }">Update</a></td>
 					</tr>
 				</c:forEach>
 			</table>
