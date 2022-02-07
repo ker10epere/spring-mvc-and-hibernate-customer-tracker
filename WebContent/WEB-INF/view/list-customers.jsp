@@ -6,6 +6,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="${ pageContext.request.contextPath }/resources/css/style.css">
 </head>
 <body>
 
@@ -15,25 +17,26 @@
 		</div>
 	</div>
 
-	<table>
-		<thead>
-			<tr>
-				<td>ID</td>
-				<td>First Name</td>
-				<td>Last Name</td>
-				<td>Email</td>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${customers}" var="item">
+	<div id="container">
+
+		<div id="content">
+			<table>
 				<tr>
-					<td>${item.getId()}</td>
-					<td>${item.getFirstName()}</td>
-					<td>${item.getLastName()}</td>
-					<td>${item.getEmail()}</td>
+					<th>ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+				<c:forEach items="${customers}" var="item">
+					<tr>
+						<td>${item.getId()}</td>
+						<td>${item.getFirstName()}</td>
+						<td>${item.getLastName()}</td>
+						<td>${item.getEmail()}</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
